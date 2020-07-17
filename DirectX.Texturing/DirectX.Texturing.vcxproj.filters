@@ -15,6 +15,9 @@
     <Filter Include="External">
       <UniqueIdentifier>{bb48d467-6544-4e62-9f16-1874d69d57e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{67c00489-f3c7-4deb-b5c1-be1089663c84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Header.hlsli">
@@ -33,19 +36,10 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Crate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Floor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeometryGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pillar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
@@ -57,24 +51,24 @@
     <ClCompile Include="DDSTextureLoader.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="Crate.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Floor.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Pillar.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Crate.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Floor.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="GeometryGenerator.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pillar.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
@@ -85,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="DDSTextureLoader.h">
       <Filter>External</Filter>
+    </ClInclude>
+    <ClInclude Include="Crate.h">
+      <Filter>Source Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Floor.h">
+      <Filter>Source Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Pillar.h">
+      <Filter>Source Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
