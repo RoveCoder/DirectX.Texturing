@@ -71,6 +71,11 @@ void Renderer::SetAnisotropicFilter()
 	m_DeviceContext->PSSetSamplers(0, 1, &m_AnisotropicSampler);
 }
 
+void Renderer::SetLinearFilter()
+{
+	m_DeviceContext->PSSetSamplers(0, 1, &m_LinearSampler);
+}
+
 void Renderer::CreateDevice()
 {
 	D3D_FEATURE_LEVEL featureLevels[] =
@@ -229,6 +234,22 @@ void Renderer::CreateAnisotropicFilter()
 {
 	D3D11_SAMPLER_DESC samplerDesc;
 	samplerDesc.Filter = D3D11_FILTER_ANISOTROPIC;
+	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+	samplerDesc.MipLODBias = 0;
+	samplerDesc.MaxAnisotropy = 8;
+	samplerDesc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+	samplerDesc.MinLOD = 0;
+	samplerDesc.MaxLOD = 0;
+
+	DX::ThrowIfFailed(m_Device->CreateSamplerState(&samplerDesc, &m_AnisotropicSampler));
+}
+
+void Renderer::CreateLinearFilter()
+{
+	D3D11_SAMPLER_DESC samplerDesc = { };
+	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
 	samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
 	samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
 	samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;

@@ -24,6 +24,7 @@ public:
 	void EnableWireframe(bool enable);
 
 	void SetAnisotropicFilter();
+	void SetLinearFilter();
 
 private:
 	SDL_Window* m_SdlWindow = nullptr;
@@ -54,8 +55,10 @@ private:
 
 	// Samplers
 	ID3D11SamplerState* m_AnisotropicSampler = nullptr;
+	ID3D11SamplerState* m_LinearSampler = nullptr;
 
 	void CreateAnisotropicFilter();
+	void CreateLinearFilter();
 };
 
 namespace DX
