@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Camera.h"
 #include <algorithm>
+#include "Timer.h"
 
 #include "Crate.h"
 #include "Floor.h"
@@ -72,6 +73,10 @@ int main(int argc, char** argv)
 	pillarLeft->Position.x = -3.0f;
 	pillarRight->Position.x = 3.0f;
 
+	// Timer
+	Timer timer;
+	timer.Start();
+
 	// Main loop
 	bool running = true;
 	while (running)
@@ -117,12 +122,14 @@ int main(int argc, char** argv)
 		}
 		else
 		{
+			timer.Tick();
+
 			renderer->Clear();
 
 			shader->Use();
 			crate->Render(camera);
 			floor->Render(camera);
-			water->Render(camera);
+			water->Render(camera, timer.DeltaTime());
 
 			pillarLeft->Render(camera);
 			pillarRight->Render(camera);

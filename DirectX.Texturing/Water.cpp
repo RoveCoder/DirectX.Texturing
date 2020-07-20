@@ -56,7 +56,7 @@ bool Water::Load()
     return true;
 }
 
-void Water::Render(Camera* camera)
+void Water::Render(Camera* camera, double deltaTime)
 {
     // Bind the vertex buffer
     UINT stride = sizeof(Vertex);
@@ -72,7 +72,7 @@ void Water::Render(Camera* camera)
 
     // Set buffer
     DirectX::XMMATRIX world = DirectX::XMMatrixTranslation(0.0f, -0.5f, 0.0f);
-    m_TextureTransform *= DirectX::XMMatrixTranslation(0.0f, -0.5f * 0.00005f, 0.0f);
+    m_TextureTransform *= DirectX::XMMatrixTranslation(0.0f, -0.5f * deltaTime, 0.0f);
 
     ConstantBuffer cb;
     cb.mWorld = DirectX::XMMatrixTranspose(world);

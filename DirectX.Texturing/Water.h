@@ -11,7 +11,7 @@ public:
 	Water(Renderer* renderer);
 
 	bool Load();
-	void Render(Camera* camera);
+	void Render(Camera* camera, double deltaTime);
 
 private:
 	Renderer* m_Renderer = nullptr;
