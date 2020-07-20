@@ -3,7 +3,7 @@
 #include "Renderer.h"
 #include "Camera.h"
 #include "Mesh.h"
-#include <DirectXMath.h>
+#include "ShaderData.h"
 
 class Pillar
 {
@@ -19,6 +19,7 @@ private:
 	Renderer* m_Renderer = nullptr;
 
 	MeshData m_MeshData;
+	Material m_Material;
 
 	ID3D11Buffer* m_VertexBuffer = nullptr;
 	ID3D11Buffer* m_IndexBuffer = nullptr;

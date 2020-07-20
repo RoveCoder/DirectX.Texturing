@@ -12,7 +12,7 @@ PixelInput main(VertexInput input)
 	// Transform to world space.
 	output.Position = mul(float4(input.Position, 1.0f), World).xyz;
 
-	output.Texture = input.Texture;
+	output.Texture = mul(float4(input.Texture, 1.0f, 1.0f), TextureTransform).xy;
 
 	return output;
 }

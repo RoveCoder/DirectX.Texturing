@@ -40,7 +40,7 @@ bool Shader::CreateVertexShader(const std::string& vertex_shader_path)
 	char* vertexbuffer = new char[vertexsize];
 	vertexFile.read(vertexbuffer, vertexsize);
 
-	m_Renderer->GetDevice()->CreateVertexShader(vertexbuffer, vertexsize, nullptr, &m_VertexShader); // Device() is ID3D11Device and m_VertexShader is ID3D11VertexShader
+	m_Renderer->GetDevice()->CreateVertexShader(vertexbuffer, vertexsize, nullptr, &m_VertexShader);
 
 	D3D11_INPUT_ELEMENT_DESC layout[] =
 	{

@@ -115,7 +115,7 @@
       <ShaderModel>5.0</ShaderModel>
     </FxCompile>
     <PostBuildEvent>
-      <Command>xcopy $(OutDir)*.cso $(ProjectDir) /r /y</Command>
+      <Command>xcopy "$(OutDir)*.cso" "$(ProjectDir)" /r /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,7 +139,7 @@
       <ShaderModel>5.0</ShaderModel>
     </FxCompile>
     <PostBuildEvent>
-      <Command>xcopy $(OutDir)*.cso $(ProjectDir) /r /y</Command>
+      <Command>xcopy "$(OutDir)*.cso" "$(ProjectDir)" /r /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -183,7 +183,7 @@
       <ShaderModel>5.0</ShaderModel>
     </FxCompile>
     <PostBuildEvent>
-      <Command>xcopy $(OutDir)*.cso $(ProjectDir) /r /y</Command>
+      <Command>xcopy "$(OutDir)*.cso" "$(ProjectDir)" /r /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -221,6 +221,7 @@
     <ClCompile Include="Pillar.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -232,6 +233,8 @@
     <ClInclude Include="Pillar.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderData.h" />
+    <ClInclude Include="Water.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

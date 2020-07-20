@@ -7,6 +7,7 @@
 #include "Crate.h"
 #include "Floor.h"
 #include "Pillar.h"
+#include "Water.h"
 
 int main(int argc, char** argv)
 {
@@ -54,6 +55,10 @@ int main(int argc, char** argv)
 
 	Floor* floor = new Floor(renderer);
 	if (!floor->Load())
+		return -1;
+
+	Water* water = new Water(renderer);
+	if (!water->Load())
 		return -1;
 
 	Pillar* pillarLeft = new Pillar(renderer);
@@ -117,6 +122,7 @@ int main(int argc, char** argv)
 			shader->Use();
 			crate->Render(camera);
 			floor->Render(camera);
+			water->Render(camera);
 
 			pillarLeft->Render(camera);
 			pillarRight->Render(camera);

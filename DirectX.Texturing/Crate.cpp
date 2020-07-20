@@ -1,18 +1,11 @@
 #include "Crate.h"
-#include <DirectXMath.h>
 #include "GeometryGenerator.h"
-#include <DirectXColors.h>
 #include "DDSTextureLoader.h"
-
-_declspec(align(16)) struct ConstantBuffer
-{
-    DirectX::XMMATRIX mWorld;
-    DirectX::XMMATRIX mView;
-    DirectX::XMMATRIX mProjection;
-};
+#include "ShaderData.h"
 
 Crate::Crate(Renderer* renderer) : m_Renderer(renderer)
 {
+    m_Material.mDiffuse = DirectX::XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 bool Crate::Load()
@@ -75,11 +68,14 @@ void Crate::Render(Camera* camera)
 
     // Set buffer
     DirectX::XMMATRIX world = DirectX::XMMatrixIdentity();
+    DirectX::XMMATRIX textureTransform = DirectX::XMMatrixIdentity();
 
     ConstantBuffer cb;
     cb.mWorld = DirectX::XMMatrixTranspose(world);
     cb.mView = DirectX::XMMatrixTranspose(camera->GetView());
     cb.mProjection = DirectX::XMMatrixTranspose(camera->GetProjection());
+    cb.mTextureTransform = DirectX::XMMatrixTranspose(textureTransform);
+    cb.mMaterial = m_Material;
 
     m_Renderer->GetDeviceContext()->VSSetConstantBuffers(0, 1, &m_ConstantBuffer);
     m_Renderer->GetDeviceContext()->PSSetConstantBuffers(0, 1, &m_ConstantBuffer);
